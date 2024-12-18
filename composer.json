@@ -13,5 +13,16 @@
     },
     "require-dev": {
         "phpunit/phpunit": "11.5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Adam\\Test\\" : "src"
+        }
+    },
+    
+    "autoload-dev": {
+        "psr-4": {
+            "Adam\\Test\\" : "test"
+        }
     }
 }
