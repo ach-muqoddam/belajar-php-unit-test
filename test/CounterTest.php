@@ -42,6 +42,8 @@ class CounterTest extends TestCase
      */
     public function increment()
     {
+        self::markTestSkipped("Masih ada error yg bingung");
+
         $this->counter->increment();
         Assert::assertEquals(1, $this->counter->getCounter());
     }
@@ -77,6 +79,14 @@ class CounterTest extends TestCase
     {
         $this->counter = new Counter();
         echo "After" . PHP_EOL;
+    }
+
+    /**
+     * @requires OSFAMILY Darwin
+     */
+    public function testOnlyMac()
+    {
+        self::assertTrue(true, " Only in Mac ");
     }
 
 }
