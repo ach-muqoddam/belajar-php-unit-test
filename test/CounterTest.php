@@ -18,7 +18,7 @@ class CounterTest extends TestCase
 
     public function testIncrement()
     {
-        self::assertEquals(0, $this->counter->getCounter());
+        self::assertSame(0, $this->counter->getCounter());
         
         //menandai incomplete test
         self::markTestIncomplete("do counter again"); 
@@ -28,13 +28,13 @@ class CounterTest extends TestCase
     public function testCounter()
     {   
         $this->counter->increment();
-        Assert::assertEquals(1, $this->counter->getCounter());
+        Assert::assertSame(1, $this->counter->getCounter());
 
         $this->counter->increment();
-        $this->assertEquals(2, $this->counter->getCounter());
+        $this->assertSame(2, $this->counter->getCounter());
 
         $this->counter->increment();
-        self::assertEquals(3, $this->counter->getCounter());
+        self::assertSame(3, $this->counter->getCounter());
     }
 
     /**
@@ -45,14 +45,14 @@ class CounterTest extends TestCase
         self::markTestSkipped("Masih ada error yg bingung");
 
         $this->counter->increment();
-        Assert::assertEquals(1, $this->counter->getCounter());
+        Assert::assertSame(1, $this->counter->getCounter());
     }
 
     public function testFirst():Counter
     {
         $counter = new Counter();
         $counter->increment();
-        $this->assertEquals(1, $counter->getCounter());
+        $this->assertSame(1, $counter->getCounter());
 
         return $counter;
     }
@@ -63,7 +63,7 @@ class CounterTest extends TestCase
     public function testSecond(Counter $counter): void
     {
         $counter->increment();
-        $this->assertEquals(2, $counter->getCounter());
+        $this->assertSame(2, $counter->getCounter());
     }
 
     protected function tearDown(): void
